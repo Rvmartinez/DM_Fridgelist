@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="barcode">Código de barras</string>
+    <string name="quantity">Cantidad</string>
+    <string name="addToList">Añadir artículo</string>
+    <string name="viewList">Ver Lista</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.MainActivity"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/barcodeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/barcode"
+        android:layout_marginTop="45dp"
+        />
+
+    <EditText
+        android:id="@+id/quantityET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/quantity"
+        android:layout_below="@+id/barcodeET"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        />
+    <Button
+        android:id="@+id/viewBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/viewList"
+        />
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/addToList"
+        />
+
+</RelativeLayout>

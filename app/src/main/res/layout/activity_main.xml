@@ -28,12 +28,14 @@
         android:id="@+id/viewBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/quantityET"
         android:text="@string/viewList"
         />
     <Button
         android:id="@+id/addBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/viewBtn"
         android:text="@string/addToList"
         />
 

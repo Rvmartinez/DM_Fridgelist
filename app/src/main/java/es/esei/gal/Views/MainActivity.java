@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         addBtn = findViewById(R.id.addBtn);
         viewBtn = findViewById(R.id.viewBtn);
         currentList = db.insertShoppingList("prueba");
+
         if( currentList == -1)
             Toast.makeText(this,"Error insertando shopping list",Toast.LENGTH_LONG);
         else

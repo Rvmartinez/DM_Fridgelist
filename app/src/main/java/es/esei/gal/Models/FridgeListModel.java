@@ -2,9 +2,9 @@ package es.esei.gal.Models;
 
 import java.util.ArrayList;
 
-public class ShoppingListModel {
+public class FridgeListModel {
     String listName;
-    ArrayList<ItemModel> itemList;
+    ArrayList<ItemModel> fridgeList;
     Boolean IsDone;
 
     public String getListName() {
@@ -15,12 +15,12 @@ public class ShoppingListModel {
         this.listName = listName;
     }
 
-    public ArrayList<ItemModel> getItemList() {
-        return itemList;
+    public ArrayList<ItemModel> getFridgeList() {
+        return fridgeList;
     }
 
-    public void setItemList(ArrayList<ItemModel> itemList) {
-        this.itemList = itemList;
+    public void setFridgeList(ArrayList<ItemModel> fridgeList) {
+        this.fridgeList = fridgeList;
     }
 
     public Boolean getDone() {
@@ -31,9 +31,9 @@ public class ShoppingListModel {
         IsDone = done;
     }
 
-    public ShoppingListModel(String listName, ArrayList<ItemModel> itemList, Boolean isDone) {
+    public FridgeListModel(String listName, ArrayList<ItemModel> fridgeList, Boolean isDone) {
         this.listName = listName;
-        this.itemList = itemList;
+        this.fridgeList = fridgeList;
         IsDone = isDone;
     }
 }

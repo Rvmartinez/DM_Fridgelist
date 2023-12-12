@@ -1,42 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.MainActivity"
-    android:padding="10dp">
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Views.MainActivity">
 
-    <EditText
-        android:id="@+id/barcodeET"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/barcode"
-        android:layout_marginTop="45dp"
-        />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/barcodeET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/barcode" />
+        <EditText
+            android:id="@+id/quantityET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/quantity"
+            android:inputType="numberDecimal"
+            android:maxLines="1" />
 
-    <EditText
-        android:id="@+id/quantityET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/quantity"
-        android:layout_below="@+id/barcodeET"
-        android:inputType="numberDecimal"
-        android:maxLines="1"
-        />
-    <Button
-        android:id="@+id/viewBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/quantityET"
-        android:text="@string/viewList"
-        />
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/viewBtn"
-        android:text="@string/addToList"
-        />
 
-</RelativeLayout>
+        <CheckBox
+            android:id="@+id/weightedCB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Es un artículo de balanza" />
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/addToList" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fridgeListRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</LinearLayout>

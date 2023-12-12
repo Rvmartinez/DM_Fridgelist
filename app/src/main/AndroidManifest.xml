@@ -15,7 +15,7 @@
         tools:targetApi="33">
 
         <activity
-            android:name=".Views.MainActivity"
+            android:name=".Views.MainList"
 
             android:exported="true">
             <intent-filter>
@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Views.MainList"
+        <activity android:name=".Views.MainActivity"
             android:exported="false"/>
 
 

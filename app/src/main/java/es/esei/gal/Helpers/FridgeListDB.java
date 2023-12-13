@@ -1,5 +1,6 @@
 package es.esei.gal.Helpers;
 
+import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 import es.esei.gal.Models.FridgeListLinesModel;
+import es.esei.gal.Models.ItemModel;
 import es.esei.gal.Models.MasterListModel;
 
 public class FridgeListDB extends SQLiteOpenHelper {
@@ -38,7 +40,7 @@ public class FridgeListDB extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE "+ FRIDGELINESTABLENAME +
                 "(LINENUM INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                 "FRIDGELISTID INTEGER NOT NULL," +
-                "ITEMID TEXT NOT NULL," +
+                "ITEMID INTEGER NOT NULL," +
                 "ITEMNAME TEXT NOT NULL," +
                 "QUANTITY INTEGER NOT NULL," +
                 "FORMAT INTEGER NOT NULL DEFAULT 0," +
@@ -61,7 +63,7 @@ public class FridgeListDB extends SQLiteOpenHelper {
         cv.put("PRICE",price);
         return  db.insert(INVENTTABLENAME,null,cv) != -1;
     }
-    public Cursor getItemById(String itemId){
+    private Cursor getItemCursorById(int itemId){
         return this.
                 getWritableDatabase().
                 rawQuery("SELECT * " +
@@ -69,6 +71,20 @@ public class FridgeListDB extends SQLiteOpenHelper {
                                 "WHERE ITEMID = "+itemId,
                         null);
 
+    }
+    public ItemModel getItemById(int itemId)
+    {
+        Cursor c = getItemCursorById(itemId);
+        int  x = c.getColumnCount();
+        try{
+            if(c.moveToFirst())
+                return new ItemModel(c.getInt(0),c.getString(1),c.getDouble(2));
+            else
+                return null;
+        }catch(NumberFormatException e)
+        {
+            throw e;
+        }
     }
 
     public ArrayList<MasterListModel> getAllFridgeLists()
@@ -154,13 +170,14 @@ public class FridgeListDB extends SQLiteOpenHelper {
 
 
 
-    public int insertFridgeLine(int listId,int itemId, String itemName,int quantity) {
+    public int insertFridgeLine(int listId,int itemId, String itemName,int quantity,int format) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("ITEMID",itemId);
         cv.put("FRIDGELISTID",listId);
         cv.put("ITEMNAME",itemName);
         cv.put("QUANTITY",quantity);
+        cv.put("FORMAT",format);
         if(db.insert(FRIDGELINESTABLENAME,null,cv) != -1)
         {
 

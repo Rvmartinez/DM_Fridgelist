@@ -18,14 +18,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/barcode" />
+            android:hint="@string/barcode"
+            android:singleLine="true"
+            android:nextFocusDown="@id/quantityET"/>
         <EditText
             android:id="@+id/quantityET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/quantity"
             android:inputType="numberDecimal"
-            android:maxLines="1" />
+            android:singleLine="true" />
 
 
         <CheckBox

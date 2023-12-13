@@ -3,17 +3,8 @@ package es.esei.gal.Models;
 public class ItemModel {
     String itemName;
     Integer itemId;
-    Boolean isWeighed;
     Double price;
 
-
-    public Boolean getWeighed() {
-        return isWeighed;
-    }
-
-    public void setWeighed(Boolean weighed) {
-        isWeighed = weighed;
-    }
 
 
     public String getItemName() {
@@ -40,7 +31,7 @@ public class ItemModel {
         this.price = price;
     }
 
-    public ItemModel(String itemName, Integer itemId, Double price) {
+    public ItemModel( Integer itemId,String itemName, Double price) {
         this.itemName = itemName;
         this.itemId = itemId;
         this.price = price;
